@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
     in = fopen(argv[1], "r");
     if (in == NULL)
     {
-        return 0;
+        return -1;
     }
     start(in);
 

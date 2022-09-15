@@ -6,16 +6,22 @@
 void start(FILE* in)
 {
     int c;
-    c = fgetc(in);
-    if (c == '/')
+    do
     {
-        rcomment(in);
+        c = fgetc(in);
+        if (c == '/')
+        {
+            while(fgetc(in) != '\n')
+            {
+                rcomment(in);
+            }
+        }
+        else
+        {
+            printf("%c", c);
+        }
     }
-    else
-    {
-        printf("%c", c);
-    }
-
+    while(!feof(in));
 }
 // Determines if the comment is a double line "//"
 // or another type of comment
@@ -38,6 +44,6 @@ void skipM_comment(FILE* in)
 // Ignores everthing from the commented section
 void skipS_comment(FILE* in)
 {
-    
+
 }
 
